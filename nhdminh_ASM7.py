@@ -10,13 +10,12 @@ def loadImg(URL):
     from PIL import Image
     img_url = URL
     img_pil = Image.open(requests.get(img_url, stream=True).raw)
-    img_pil # ảnh lưu ở format Pillow
+    # img_pil # ảnh lưu ở format Pillow
     return np.array(img_pil) # ảnh lưu ở dạng numpy array
     
 def kMeansImg(URL,k):
     img = loadImg(URL)
     X = img.reshape(img.shape[0]*img.shape[1],img.shape[2])
-    X.shape
     kmeans = KMeans(n_clusters=k, n_init='auto')
     kmeans.fit(X)
     img_new= ([kmeans.cluster_centers_[kmeans.labels_[i]] for i in range(len(X))])
@@ -26,7 +25,7 @@ def kMeansImg(URL,k):
 
 # img_url = "https://www.popsci.com/uploads/2023/05/15/ButterflyFamilyTree.png"
 k = st.slider("Select a range of k", 3, 16)
-img_url = st.text_input("Movie title", "https://www.popsci.com/uploads/2023/05/15/ButterflyFamilyTree.png")
+img_url = st.text_input("Image URL", "https://www.popsci.com/uploads/2023/05/15/ButterflyFamilyTree.png")
 if st.button('Say Hello'):
     img_show = kMeansImg(img_url,k)
     img_show
