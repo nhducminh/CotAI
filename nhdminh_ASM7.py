@@ -30,8 +30,10 @@ img_org = Image.open(requests.get(img_url, stream=True).raw)
 
 if st.button(f'run kMean on  URL with {k}'):
     col1, col2 = st.columns(2)
+    col1.header('Original')
     col1.image(img_org,use_column_width=True)
     img_show = kMeansImg(img_url,k)
+    col1.header('Clustering')
     col2.image(img_show,use_column_width=True)
 
 
