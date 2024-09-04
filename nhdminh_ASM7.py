@@ -33,7 +33,7 @@ if st.button(f'run kMean on  URL with {k}'):
     col1.header('Original')
     col1.image(img_org,use_column_width=True)
     img_show = kMeansImg(img_url,k)
-    col1.header('Clustering')
+    col2.header('Clustering')
     col2.image(img_show,use_column_width=True)
 
 
