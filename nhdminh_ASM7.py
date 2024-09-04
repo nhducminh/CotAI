@@ -26,7 +26,7 @@ def kMeansImg(URL,k):
 # img_url = "https://www.popsci.com/uploads/2023/05/15/ButterflyFamilyTree.png"
 k = st.slider("Select a range of k", 3, 16)
 img_url = st.text_input("Image URL", "https://www.popsci.com/uploads/2023/05/15/ButterflyFamilyTree.png")
-if st.button('Say Hello'):
+if st.button(f'kMean URL {k}'):
     img_show = kMeansImg(img_url,k)
     img_show
 
