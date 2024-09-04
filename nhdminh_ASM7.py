@@ -32,6 +32,6 @@ img_org = Image.open(requests.get(img_url, stream=True).raw)
 col1.image(img_org,use_column_width=True)
 if st.button(f'kMean URL {k}'):
     img_show = kMeansImg(img_url,k)
-    col2.image(img_show,,use_column_width=True)
+    col2.image(img_show,use_column_width=True)
 
 
