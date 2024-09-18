@@ -66,7 +66,13 @@ with col1_main:
                                 input0 = st.number_input(f"Insert {options[0]} number")                        
                             with col6_tab2:
                                 input1 = st.number_input(f"Insert {options[1]} number")
-
+                            if st.button("Predict", type="primary"):
+                              if input0*input1!=0:
+                                y_input = np.array([[input0,input1]])
+                                y_input_predict = model.predict(y_input)
+                                txt = st.text(f'Sale prediction: {y_input_predict}')
+                              else:
+                                txt = st.text_area(f'Please input {options[0]} and {options[1]} buget')
                     pass
                 pass
             with tab2:
