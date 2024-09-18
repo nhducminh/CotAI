@@ -24,7 +24,8 @@ with col1:
                 with col4:
                     options = st.multiselect(
                         "Choose feature",
-                        (df.columns[0], df.columns[1], df.columns[2])                    )
+                        (df.columns[0], df.columns[1], df.columns[2]),
+                        max_selections=2)
 
                     pass
                 pass
