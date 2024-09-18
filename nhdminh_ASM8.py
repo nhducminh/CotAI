@@ -72,7 +72,7 @@ with col1_main:
                                 y_input_predict = model.predict(y_input)
                                 txt = st.text(f'Sale prediction: {y_input_predict}')
                               else:
-                                txt = st.text_area(f'Please input {options[0]} and {options[1]} buget')
+                                txt = st.text(f'Please input {options[0]} and {options[1]} buget')
                     pass
                 pass
             with tab2:
