@@ -8,6 +8,7 @@ from sklearn.metrics import mean_squared_error as mse
 from sklearn.model_selection import train_test_split
 
 ###########################
+st.set_page_config(layout="wide")
 
 col1, col2 = st.columns([1,3])
 with col1:
