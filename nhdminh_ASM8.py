@@ -51,10 +51,10 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:                        
-                            fig = go.Figure(data=[go.Scatter(x = X[:,0],y = X[:,1],mode='markers'),
+                            fig2d = go.Figure(data=[go.Scatter(x = X[:,0],y = X[:,1],mode='markers'),
                                                  go.Scatter(x=X[:,0], y=x*w+b,mode='lines')])
 
-                            st.plotly_chart(fig)
+                            st.plotly_chart(fig2d)
 
                         if len(options)==2:
                             X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
@@ -63,9 +63,9 @@ with col1_main:
                             XX,YY = np.meshgrid(X_space,Y_space)
                             XY = np.c_[XX.ravel(),YY.ravel()]
                             Z = XY@w + b                            
-                            fig = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
+                            fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
                                                   go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
-                            st.plotly_chart(fig)
+                            st.plotly_chart(fig3d)
 
 
                         
