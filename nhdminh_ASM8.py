@@ -56,8 +56,8 @@ with col1_main:
                             fig, ax = plt.subplots()
                             ax.scatter(X, y)
                             ax.plot(X,X*w+b,color='red')
-                            fig.xlabel(options[0])
-                            fig.ylabel('Sales')
+                            ax.set_xlabel(options[0])
+                            ax.set_ylabel('Sales')
                             st.pyplot(fig)
                         if len(options)==2:
                             X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
