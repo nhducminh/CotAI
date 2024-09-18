@@ -66,8 +66,13 @@ with col1_main:
                             XX,YY = np.meshgrid(X_space,Y_space)
                             XY = np.c_[XX.ravel(),YY.ravel()]
                             Z = XY@w + b                            
-                            fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape),xaxis=option[0],yaxis=options[1],zaxis ='Sales'),
+                            fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
                                                   go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
+                            fig3d.update_layout(scene = dict(
+                                                xaxis_title=options[0],
+                                                yaxis_title=options[1],
+                                                zaxis_title='Sales')
+
                             st.plotly_chart(fig3d)
                         
                         with tab2:
