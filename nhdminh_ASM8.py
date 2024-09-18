@@ -37,11 +37,11 @@ with col1:
                     model = LinearRegression()
                     try:
                         if len(options)==1:                        
-                            X = np.array(df.loc[:,options[0]])
+                            X = np.array(df.loc[:,options[0]]).reshape(-1,1)
                             st.write(X)
                             model.fit(X,y)
                         elif len(options)==2:
-                            X = np.array(df.loc[:,[options[0],options[1]]])
+                            X = np.array(df.loc[:,[options[0],options[1]]]).reshape(-1,2)
                             st.write(X)
                             model.fit(X,y)
                     except Exception as e:
