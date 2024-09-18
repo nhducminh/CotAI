@@ -34,38 +34,40 @@ with col1:
                         "Choose feature",
                         (df.columns[0], df.columns[1], df.columns[2]),
                         max_selections=2)
-                    
-                    # YOUR CODE HERE
                     y = df.Sales
                     model = LinearRegression()
-                    try:
-                        if len(options)==1:                        
-                            X = np.array(df.loc[:,options[0]]).reshape(-1,1)
-                            
-                            X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                            model.fit(X_train,y_train)
-                            
-                            y_predict = model.predict(X_test)
-                            model_mae = mae(y_test,y_predict)
-                            model_mse = mse(y_test,y_predict)
-                            st.write(f"Model trained:")
-                            st.write(f"MAE:{model_mae}")
-                            st.write(f"MSE: {model_mse}")
-                        elif len(options)==2:
-                            X = np.array(df.loc[:,[options[0],options[1]]])
-                            
-                            X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                            model.fit(X_train,y_train)
-                            
-                            y_predict = model.predict(X_test)
-                            model_mae = mae(y_test,y_predict)
-                            model_mse = mse(y_test,y_predict)
-                            st.write(f"Model trained:")
-                            st.write(f"MAE:{model_mae}")
-                            st.write(f"MSE: {model_mse}")
-                            
-                    except Exception as e:
-                        st.write(e)
+                    if len(options)==1:                        
+                        X = np.array(df.loc[:,options[0]]).reshape(-1,1)
+                        
+                        X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                        model.fit(X_train,y_train)
+                        
+                        y_predict = model.predict(X_test)
+                        model_mae = mae(y_test,y_predict)
+                        model_mse = mse(y_test,y_predict)
+                        st.write(f"Model trained:")
+                        st.write(f"MAE:{model_mae}")
+                        st.write(f"MSE: {model_mse}")
+                        
+                    elif len(options)==2:
+                        X = np.array(df.loc[:,[options[0],options[1]]])
+                        
+                        X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                        model.fit(X_train,y_train)
+                        
+                        y_predict = model.predict(X_test)
+                        model_mae = mae(y_test,y_predict)
+                        model_mse = mse(y_test,y_predict)
+                        st.write(f"Model trained:")
+                        st.write(f"MAE:{model_mae}")
+                        st.write(f"MSE: {model_mse}")
+                        col1, col2 = st.columns(2)
+                        with col1:
+                          input0 = st.number_input(f"Insert {options[0]} number")
+                        
+                        with col2:
+                          # col2.header('TV')
+                          input1 = st.number_input(f"Insert {options[1]} number")
 
                     pass
                 pass
