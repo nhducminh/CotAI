@@ -53,7 +53,8 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:           
-                            fig, ax = plt.scatter(X, y)
+                            fig, ax = plt.subplots()
+                            ax.scatter(X, y)
                             st.pyplot(fig)
                         if len(options)==2:
                             X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
