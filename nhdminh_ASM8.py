@@ -41,11 +41,19 @@ with col1:
                             X = np.array(df.loc[:,options[0]])
                             X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                             model.fit(X_train,y_train)
-                            st.write(mae(
+                            y_predict = model.predict(X_test)
+                            model_mae = mae(y_test,y_predict)
+                            model_mse = mse(y_test,y_predict)
+                            st.write(model_mae,model_mse)
                         elif len(options)==2:
                             X = np.array(df.loc[:,[options[0],options[1]]])
                             X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                             model.fit(X_train,y_train)
+                            y_predict = model.predict(X_test)
+                            model_mae = mae(y_test,y_predict)
+                            model_mse = mse(y_test,y_predict)
+                            st.write(model_mae,model_mse)
+                            
                     except Exception as e:
                         st.write(e)
 
