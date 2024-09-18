@@ -55,7 +55,7 @@ with col1_main:
                         if len(options)==1:           
                             fig, ax = plt.subplots()
                             ax.scatter(X, y)
-                            ax.plot(X,X*w+b)
+                            ax.plot(X,X*w+b,color='red')
 
                             st.pyplot(fig)
                         if len(options)==2:
