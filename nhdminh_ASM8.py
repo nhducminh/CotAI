@@ -47,7 +47,7 @@ with col1:
                             y_predict = model.predict(X_test)
                             model_mae = mae(y_test,y_predict)
                             model_mse = mse(y_test,y_predict)
-                            st.write(f"Model trained: MAE:{model_mae}, MSE: {model_mse}")
+                            st.write(f"Model trained:\n MAE:{model_mae}\n MSE: {model_mse}")
                         elif len(options)==2:
                             X = np.array(df.loc[:,[options[0],options[1]]])
                             
@@ -57,7 +57,7 @@ with col1:
                             y_predict = model.predict(X_test)
                             model_mae = mae(y_test,y_predict)
                             model_mse = mse(y_test,y_predict)
-                            st.write(f"Model trained: MAE:{model_mae}, MSE: {model_mse}")
+                            st.write(f"Model trained:\n MAE:{model_mae}\n MSE: {model_mse}")
                             
                     except Exception as e:
                         st.write(e)
