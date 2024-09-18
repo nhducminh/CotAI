@@ -30,7 +30,7 @@ with col1:
                     # YOUR CODE HERE
                     if len(options)==1:                        
                         y = df.Sales
-                        X = np.array(df.loc[:,[options[0]])
+                        X = np.array(df.loc[:,options[0]])
                         model = LinearRegression()
                         model.fit(X,y)
                     pass
