@@ -18,12 +18,12 @@ with col1:
         st.write(string_data)
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
+        with col2:
+            tab1, tab2 = st.tabs(["Train", "Inference"])
+            with tab1:
+                st.dataframe(df)
+                pass
+            with tab2:
+                pass
 
 
-with col2:
-    tab1, tab2 = st.tabs(["Train", "Inference"])
-    with tab1:
-        st.dataframe(df)
-        pass
-    with tab2:
-        pass
