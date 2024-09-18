@@ -49,7 +49,7 @@ with col1_main:
                         input = [st.number_input(f"Insert {x} number") for x in options ]
                         st.write(np.array(input))
                         if st.button("Predict", type="primary"):     
-                            if np.any(input):
+                            if ~np.all(input):
                                 output_predict = model.predict(np.array(input).reshape(-1,len(options)))
                                 st.write(output_predict)
                             else:
