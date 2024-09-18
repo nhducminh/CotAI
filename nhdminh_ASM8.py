@@ -61,12 +61,11 @@ with col1:
                         st.write(f"Model trained:")
                         st.write(f"MAE:{model_mae}")
                         st.write(f"MSE: {model_mse}")
-                        col1, col2 = st.columns(2)
-                        with col5:
-                          input0 = st.number_input(f"Insert {options[0]} number")
                         
+                        col5, col6 = st.columns(2)
+                        with col5:
+                          input0 = st.number_input(f"Insert {options[0]} number")                        
                         with col6:
-                          # col2.header('TV')
                           input1 = st.number_input(f"Insert {options[1]} number")
 
                     pass
