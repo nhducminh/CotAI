@@ -82,7 +82,7 @@ with col1_main:
                                     output_predict = model.predict(np.array(input).reshape(-1,len(options)))
                                     st.write(f"Prediction {output_predict}")
                                 else:
-                                    st.write("Please input")
+                                    st.write("Please input number # 0")
                     except:
                         pass
              
