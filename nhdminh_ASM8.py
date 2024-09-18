@@ -47,32 +47,8 @@ with col1_main:
                     st.write(f"MSE: {mse(y_test,y_predict)}")
                     with tab2:
                         input = [st.number_input(f"Insert {x} number") for x in options ]
-                        # input0 = st.number_input(f"Insert {options[0]} number")                        
-                    # elif len(options)==2:
-                    #     X = np.array(df.loc[:,[options[0],options[1]]])
-                        
-                    #     X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                    #     model.fit(X_train,y_train)
-                        
-                    #     y_predict = model.predict(X_test)      
-                    #     st.write(f"Model trained:")
-                    #     st.write(f"MAE:{mae(y_test,y_predict)}")
-                    #     st.write(f"MSE: {mse(y_test,y_predict)}")
-                        
-                        # with tab2:
-                        #     col5_tab2, col6_tab2 = st.columns(2)
-    
-                    #         with col5_tab2:
-                    #             input0 = st.number_input(f"Insert {options[0]} number")                        
-                    #         with col6_tab2:
-                    #             input1 = st.number_input(f"Insert {options[1]} number")
-                    #         if st.button("Predict", type="primary"):
-                    #           if input0*input1!=0:
-                    #             y_input = np.array([[input0,input1]])
-                    #             y_input_predict = model.predict(y_input)
-                    #             txt = st.text(f'Sale prediction: {y_input_predict}')
-                    #           else:
-                    #             txt = st.text(f'Please input {options[0]} and {options[1]} buget')
+                        output_predict = model.predict(np.array(input))
+                        st.write(output_predict)
                     pass
                 pass
             with tab2:
