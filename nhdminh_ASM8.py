@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from io import StringIO
+import numpy as np
+
+###########################
 
 col1, col2 = st.columns([1,3])
 with col1:
