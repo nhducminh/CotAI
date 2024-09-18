@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
-from io import StringIO
 import numpy as np
+import plotly.graph_objects as go
+
+from io import StringIO
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error as mae
 from sklearn.metrics import mean_squared_error as mse
