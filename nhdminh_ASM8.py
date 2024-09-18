@@ -76,7 +76,7 @@ with col1_main:
                                     st.write(f"Prediction {output_predict}")
                                 else:
                                     st.write("Please input")
-                    except Exeption as e:
+                    except Exception as e:
                         print(e)
                         pass                    
                 pass
