@@ -16,11 +16,11 @@ inputTV = 0
 col1, col2 = st.columns(2)
 col2.header('Radio')
 with col1:
-  inputRadio = st.number_input("Insert a number")
+  inputRadio = st.number_input("Insert Radio number")
 
 col2.header('TV')
 with col2:
-  inputTV = st.number_input("Insert a number")
+  inputTV = st.number_input("Insert TV number")
 
 # if st.button("Predict", type="primary"):
 #   if inputRadio*inputTV!=0:
