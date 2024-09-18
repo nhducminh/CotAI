@@ -4,7 +4,7 @@ from io import StringIO
 
 col1, col2 = st.columns([1,3])
 with col1:
-    uploaded_file = st.file_uploader("Choose a file",label_visibility =False)
+    uploaded_file = st.file_uploader("Choose a file",label_visibility ="hidden")
 
     if uploaded_file is not None:
         # To read file as bytes:
