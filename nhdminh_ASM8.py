@@ -55,6 +55,8 @@ with col1_main:
                         if len(options)==1:           
                             fig, ax = plt.subplots()
                             ax.scatter(X, y)
+                            ax.plot(X,X*w+b)
+
                             st.pyplot(fig)
                         if len(options)==2:
                             X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
