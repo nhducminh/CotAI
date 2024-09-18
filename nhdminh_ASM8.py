@@ -30,7 +30,7 @@ with col1:
                         "Choose feature",
                         (df.columns[0], df.columns[1], df.columns[2]),
                         max_selections=2)
-                    st.write(len(options))
+                    st.write(f"{len(options)} {options}")
                     # YOUR CODE HERE
                     if len(options)==1:                        
                         y = df.Sales
