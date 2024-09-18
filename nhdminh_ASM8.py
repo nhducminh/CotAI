@@ -51,7 +51,7 @@ with col1_main:
                             st.write(np.array(input))
                             st.write(np.all(np.array(input)))
                             if st.button("Predict", type="primary"):     
-                                if not np.all(np.array(input)):
+                                if np.all(np.array(input)):
                                     output_predict = model.predict(np.array(input).reshape(-1,len(options)))
                                     st.write(output_predict)
                                 else:
