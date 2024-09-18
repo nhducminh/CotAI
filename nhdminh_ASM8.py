@@ -51,8 +51,8 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:                        
-                            fig2d = go.Figure(data=[go.Scatter(x = X,y = y,mode='markers'),
-                                                 go.Scatter(x=X, y=x*w+b,mode='lines')])
+                            fig2d = go.Figure(data=[go.Scatter(x = X,y = y,mode='markers')])
+                                                 # go.Scatter(x=X, y=x*w+b,mode='lines')])
                             st.plotly_chart(fig2d)
 
                         if len(options)==2:
@@ -65,8 +65,6 @@ with col1_main:
                             fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
                                                   go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
                             st.plotly_chart(fig3d)
-
-
                         
                         with tab2:
                             input = [st.number_input(f"Insert {x} number") for x in options ]
