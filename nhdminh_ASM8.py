@@ -32,52 +32,49 @@ with col1_main:
                 with col1_tab1:
                     st.dataframe(df)
                 with col2_tab1:
-                    try:
-                        options = st.multiselect(
-                            "Choose feature",
-                            (df.columns[0], df.columns[1], df.columns[2]),
-                            max_selections=3)
-                        y = df.Sales
-                        model = LinearRegression()
+                    options = st.multiselect(
+                        "Choose feature",
+                        (df.columns[0], df.columns[1], df.columns[2]),
+                        max_selections=3)
+                    y = df.Sales
+                    model = LinearRegression()
 
-                        X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
-                        
-                        X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                        
-                        model.fit(X_train,y_train)             
-                        w = model.coef_
-                        b = model.intercept_
-                        y_predict = model.predict(X_test)      
-                        st.write(f"Model trained:")
-                        st.write(f"MAE:{mae(y_test,y_predict)}")
-                        st.write(f"MSE: {mse(y_test,y_predict)}")
-                        if len(options)==1:                        
-                            fig2d = go.Figure(data=[go.Scatter(X,y,mode='markers'),
-                                                  go.Scatter(x=X, y=x*w+b,mode='lines')])
-                            st.plotly_chart(fig2d)
+                    X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
+                    
+                    X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                    
+                    model.fit(X_train,y_train)             
+                    w = model.coef_
+                    b = model.intercept_
+                    y_predict = model.predict(X_test)      
+                    st.write(f"Model trained:")
+                    st.write(f"MAE:{mae(y_test,y_predict)}")
+                    st.write(f"MSE: {mse(y_test,y_predict)}")
+                    if len(options)==1:                        
+                        fig2d = go.Figure(data=[go.Scatter(X,y,mode='markers'),
+                                              go.Scatter(x=X, y=x*w+b,mode='lines')])
+                        st.plotly_chart(fig2d)
 
-                        if len(options)==2:
-                            X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
-                            Y_space = np.linspace(np.min(X[:,1]),np.max(X[:,1]))
-                            
-                            XX,YY = np.meshgrid(X_space,Y_space)
-                            XY = np.c_[XX.ravel(),YY.ravel()]
-                            Z = XY@w + b                            
-                            fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
-                                                  go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
-                            st.plotly_chart(fig3d)
+                    if len(options)==2:
+                        X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
+                        Y_space = np.linspace(np.min(X[:,1]),np.max(X[:,1]))
                         
-                        with tab2:
-                            input = [st.number_input(f"Insert {x} number") for x in options ]
-                            if st.button("Predict", type="primary"):     
-                                if np.all(np.array(input)):
-                                    output_predict = model.predict(np.array(input).reshape(-1,len(options)))
-                                    st.write(f"Prediction {output_predict}")
-                                else:
-                                    st.write("Please input")
-                    except Exception as e:
-                        print(e)
-                        pass                    
+                        XX,YY = np.meshgrid(X_space,Y_space)
+                        XY = np.c_[XX.ravel(),YY.ravel()]
+                        Z = XY@w + b                            
+                        fig3d = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
+                                              go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
+                        st.plotly_chart(fig3d)
+                    
+                    with tab2:
+                        input = [st.number_input(f"Insert {x} number") for x in options ]
+                        if st.button("Predict", type="primary"):     
+                            if np.all(np.array(input)):
+                                output_predict = model.predict(np.array(input).reshape(-1,len(options)))
+                                st.write(f"Prediction {output_predict}")
+                            else:
+                                st.write("Please input")
+             
                 pass
             with tab2:
                 pass
