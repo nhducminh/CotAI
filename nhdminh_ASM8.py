@@ -54,8 +54,8 @@ with col1_main:
                             st.write(X[:,0])
                             st.write(X[:,1])
                             
-                            fig2d = go.Figure(data=[go.Scatter(x = X[:,0],y = X[:,1],mode='markers'),
-                                                 go.Scatter(x=X[:,0], y=x*w+b,mode='lines')])
+                            fig2d = go.Figure(data=[go.Scatter(x = X,y = y,mode='markers'),
+                                                 go.Scatter(x=X, y=x*w+b,mode='lines')])
 
                             st.plotly_chart(fig2d)
 
