@@ -39,7 +39,7 @@ with col1:
                     model = LinearRegression()
                     try:
                         if len(options)==1:                        
-                            X = np.array(df.loc[:,options[0]])
+                            X = np.array(df.loc[:,options[0]]).reshape(-1,1)
                             X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                             model.fit(X_train,y_train)
                             y_predict = model.predict(X_test)
