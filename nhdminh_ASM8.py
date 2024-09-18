@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from io import StringIO
 import numpy as np
+from sklearn.linear_model import LinearRegression
 
 ###########################
 
