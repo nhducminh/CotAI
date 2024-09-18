@@ -30,13 +30,13 @@ with col1:
                         "Choose feature",
                         (df.columns[0], df.columns[1], df.columns[2]),
                         max_selections=2)
-                    st.write(f"{len(options)} {options}")
+                    
                     # YOUR CODE HERE
                     y = df.Sales
                     model = LinearRegression()
 
                     if len(options)==1:                        
-                        # X = np.array(df.loc[:,options[0]])
+                        X = np.array(df.loc[:,options[0]])
                         st.write(options[0])
                         # model.fit(X,y)
                     elif len(options)==2:
