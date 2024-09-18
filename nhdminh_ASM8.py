@@ -47,8 +47,10 @@ with col1_main:
                     st.write(f"MSE: {mse(y_test,y_predict)}")
                     with tab2:
                         input = [st.number_input(f"Insert {x} number") for x in options ]
-                        output_predict = model.predict(np.array(input))
-                        st.write(output_predict)
+                        st.write(np.array(input))
+                        if st.button("Predict", type="primary"):                        
+                            output_predict = model.predict(np.array(input))
+                            st.write(output_predict)
                     pass
                 pass
             with tab2:
