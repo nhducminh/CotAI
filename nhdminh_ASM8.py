@@ -37,8 +37,8 @@ with col1_main:
                     y = df.Sales
                     model = LinearRegression()
                     # if len(options)==1:                        
-                    X = np.array(df.loc[:,[x for x in options]]).reshape(-1,1)
-                    
+                    X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
+                    st.write(X)
                     X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                     model.fit(X_train,y_train)   
                     
