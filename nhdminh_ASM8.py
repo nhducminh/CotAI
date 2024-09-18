@@ -10,8 +10,8 @@ from sklearn.model_selection import train_test_split
 ###########################
 st.set_page_config(layout="wide")
 
-col1, col2 = st.columns([1,3])
-with col1:
+col1_main, col2_main = st.columns([1,3])
+with col1_main:
     uploaded_file = st.file_uploader("Choose a file")
 
     if uploaded_file is not None:
@@ -23,13 +23,13 @@ with col1:
         string_data = stringio.read()
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
-        with col2:
+        with col2_main:
             tab1, tab2 = st.tabs(["Train", "Inference"])
             with tab1:
-                col3,col4 = st.columns([1,3])
-                with col3:
+                col3_sub, col4_sub = st.columns([1,3])
+                with col3_sub:
                     st.dataframe(df)
-                with col4:
+                with col4_sub:
                     options = st.multiselect(
                         "Choose feature",
                         (df.columns[0], df.columns[1], df.columns[2]),
@@ -62,11 +62,11 @@ with col1:
                         st.write(f"MAE:{model_mae}")
                         st.write(f"MSE: {model_mse}")
                         
-                        col5, col6 = st.columns(2)
-                        with col5:
-                          input0 = st.number_input(f"Insert {options[0]} number")                        
-                        with col6:
-                          input1 = st.number_input(f"Insert {options[1]} number")
+                        col5_tab2, col6_tab2 = st.columns(2)
+                        with col5_tab2:
+                            input0 = st.number_input(f"Insert {options[0]} number")                        
+                        with col6_tab2:
+                            input1 = st.number_input(f"Insert {options[1]} number")
 
                     pass
                 pass
