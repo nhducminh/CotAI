@@ -3,6 +3,8 @@ import pandas as pd
 from io import StringIO
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error as mae
+from sklearn.metrics import mean_squared_error as mse
 
 ###########################
 
@@ -33,17 +35,17 @@ with col1:
                     
                     # YOUR CODE HERE
                     y = df.Sales
-                    st.write(y)
                     model = LinearRegression()
                     try:
                         if len(options)==1:                        
-                            X = np.array(df.loc[:,options[0]]).reshape(-1,1)
-                            st.write(X)
-                            model.fit(X,y)
+                            X = np.array(df.loc[:,options[0]])
+                            X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                            model.fit(X_train,y_train)
+                            st.write(mae(
                         elif len(options)==2:
-                            X = np.array(df.loc[:,[options[0],options[1]]]).reshape(-1,2)
-                            st.write(X)
-                            model.fit(X,y)
+                            X = np.array(df.loc[:,[options[0],options[1]]])
+                            X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                            model.fit(X_train,y_train)
                     except Exception as e:
                         st.write(e)
 
