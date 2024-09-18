@@ -51,6 +51,9 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:                        
+                            st.write(X[:,0])
+                            st.write(X[:,1])
+                            
                             fig2d = go.Figure(data=[go.Scatter(x = X[:,0],y = X[:,1],mode='markers'),
                                                  go.Scatter(x=X[:,0], y=x*w+b,mode='lines')])
 
