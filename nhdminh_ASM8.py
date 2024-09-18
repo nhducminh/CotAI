@@ -53,7 +53,8 @@ with col1_main:
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:           
                             xx = np.linspace(0,np.max(X))
-                            fig2d = go.Figure(data=go.Scatter(x=xx,y=y,mode='markers'))
+                            fig2d = go.Figure(data=[go.Scatter(x=xx,y=y,mode='markers'),
+                                                   go.Scatter(x=xx,y=y*w +b,mode='lines')])
 
                             st.plotly_chart(fig2d)
     
