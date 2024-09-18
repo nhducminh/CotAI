@@ -32,12 +32,16 @@ with col1:
                         max_selections=2)
                     st.write(f"{len(options)} {options}")
                     # YOUR CODE HERE
+                    y = df.Sales
+                    model = LinearRegression()
+
                     if len(options)==1:                        
-                        y = df.Sales
                         # X = np.array(df.loc[:,options[0]])
                         st.write(options[0])
-                        model = LinearRegression()
                         # model.fit(X,y)
+                    elif len(options)==2:
+                        st.write(options[0],options[1])
+
                     pass
                 pass
             with tab2:
