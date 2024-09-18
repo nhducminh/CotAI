@@ -41,6 +41,7 @@ with col1_main:
                         model = LinearRegression()
 
                         X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
+                        
                         X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                         
                         model.fit(X_train,y_train)             
@@ -51,8 +52,8 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:                        
-                            fig2d = go.Figure(data=[go.Scatter(x = df.loc[:,[x for x in options]],y = y,mode='markers')])
-                                                 # go.Scatter(x=X, y=x*w+b,mode='lines')])
+                            fig2d = go.Figure(data=[go.Scatter(X,y,mode='markers'),
+                                                  go.Scatter(x=X, y=x*w+b,mode='lines')])
                             st.plotly_chart(fig2d)
 
                         if len(options)==2:
