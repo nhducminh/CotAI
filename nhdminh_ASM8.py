@@ -9,19 +9,20 @@ with col1:
     if uploaded_file is not None:
         # To read file as bytes:
         bytes_data = uploaded_file.getvalue()
-        # st.write(bytes_data)
         # To convert to a string based IO:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        # st.write(stringio)
         # To read file as string:
         string_data = stringio.read()
-        # st.write(string_data)
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
         with col2:
             tab1, tab2 = st.tabs(["Train", "Inference"])
             with tab1:
-                st.dataframe(df)
+                col3,col4 = st.columns(2)
+                with col3:
+                    st.dataframe(df)
+                with col4:
+                    pass
                 pass
             with tab2:
                 pass
