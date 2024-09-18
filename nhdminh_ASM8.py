@@ -22,10 +22,9 @@ with col1:
                 with col3:
                     st.dataframe(df)
                 with col4:
-                    option = st.selectbox(
-                        "How would you like to be contacted?",
-                        (df.columns[0], df.columns[1], df.columns[2]),
-                    )
+                    options = st.multiselect(
+                        "Choose feature",
+                        (df.columns[0], df.columns[1], df.columns[2])                    )
 
                     pass
                 pass
