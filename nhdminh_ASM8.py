@@ -30,32 +30,33 @@ with col1_main:
                 with col3_tab1:
                     st.dataframe(df)
                 with col4_tab1:
-                    options = st.multiselect(
-                        "Choose feature",
-                        (df.columns[0], df.columns[1], df.columns[2]),
-                        max_selections=2)
-                    y = df.Sales
-                    model = LinearRegression()
-                    # if len(options)==1:                        
-                    X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
-                    X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                    model.fit(X_train,y_train)   
-                    
-                    y_predict = model.predict(X_test)      
-                    st.write(f"Model trained:")
-                    st.write(f"MAE:{mae(y_test,y_predict)}")
-                    st.write(f"MSE: {mse(y_test,y_predict)}")
-                    with tab2:
-                        input = [st.number_input(f"Insert {x} number") for x in options ]
-                        st.write(np.array(input))
-                        if st.button("Predict", type="primary"):     
-                            if ~np.all(np.array(input)):
-                                output_predict = model.predict(np.array(input).reshape(-1,len(options)))
-                                st.write(output_predict)
-                            else:
-                                st.write("Please input")
-                            
-                    pass
+                    try:
+                        options = st.multiselect(
+                            "Choose feature",
+                            (df.columns[0], df.columns[1], df.columns[2]),
+                            max_selections=2)
+                        y = df.Sales
+                        model = LinearRegression()
+
+                        X = np.array(df.loc[:,[x for x in options]]).reshape(-1,len(options))
+                        X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                        model.fit(X_train,y_train)   
+                        
+                        y_predict = model.predict(X_test)      
+                        st.write(f"Model trained:")
+                        st.write(f"MAE:{mae(y_test,y_predict)}")
+                        st.write(f"MSE: {mse(y_test,y_predict)}")
+                        with tab2:
+                            input = [st.number_input(f"Insert {x} number") for x in options ]
+                            st.write(np.array(input))
+                            if st.button("Predict", type="primary"):     
+                                if ~np.all(np.array(input)):
+                                    output_predict = model.predict(np.array(input).reshape(-1,len(options)))
+                                    st.write(output_predict)
+                                else:
+                                    st.write("Please input")
+                    except:
+                        pass                    
                 pass
             with tab2:
                 pass
