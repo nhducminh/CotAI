@@ -26,7 +26,7 @@ with col1:
         with col2:
             tab1, tab2 = st.tabs(["Train", "Inference"])
             with tab1:
-                col3,col4 = st.columns(2)
+                col3,col4 = st.columns([1,3])
                 with col3:
                     st.dataframe(df)
                 with col4:
