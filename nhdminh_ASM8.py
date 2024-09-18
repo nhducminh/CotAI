@@ -26,10 +26,10 @@ with col1_main:
         with col2_main:
             tab1, tab2 = st.tabs(["Train", "Inference"])
             with tab1:
-                col3_sub, col4_sub = st.columns([1,3])
-                with col3_sub:
+                col3_tab1, col4_tab1 = st.columns([1,3])
+                with col3_tab1:
                     st.dataframe(df)
-                with col4_sub:
+                with col4_tab1:
                     options = st.multiselect(
                         "Choose feature",
                         (df.columns[0], df.columns[1], df.columns[2]),
@@ -62,11 +62,13 @@ with col1_main:
                         st.write(f"MAE:{model_mae}")
                         st.write(f"MSE: {model_mse}")
                         
-                        col5_tab2, col6_tab2 = st.columns(2)
-                        with col5_tab2:
-                            input0 = st.number_input(f"Insert {options[0]} number")                        
-                        with col6_tab2:
-                            input1 = st.number_input(f"Insert {options[1]} number")
+                        with tab2:
+                            col5_tab2, col6_tab2 = st.columns(2)
+    
+                            with col5_tab2:
+                                input0 = st.number_input(f"Insert {options[0]} number")                        
+                            with col6_tab2:
+                                input1 = st.number_input(f"Insert {options[1]} number")
 
                     pass
                 pass
