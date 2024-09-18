@@ -37,15 +37,15 @@ with col1_main:
                     y = df.Sales
                     model = LinearRegression()
                     # if len(options)==1:                        
-                        X = np.array(df.loc[:,[x for x in options]]).reshape(-1,1)
-                        
-                        X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                        model.fit(X_train,y_train)   
-                        
-                        y_predict = model.predict(X_test)      
-                        st.write(f"Model trained:")
-                        st.write(f"MAE:{mae(y_test,y_predict)}")
-                        st.write(f"MSE: {mse(y_test,y_predict)}")
+                    X = np.array(df.loc[:,[x for x in options]]).reshape(-1,1)
+                    
+                    X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
+                    model.fit(X_train,y_train)   
+                    
+                    y_predict = model.predict(X_test)      
+                    st.write(f"Model trained:")
+                    st.write(f"MAE:{mae(y_test,y_predict)}")
+                    st.write(f"MSE: {mse(y_test,y_predict)}")
                         # with tab2:
                         #     input0 = st.number_input(f"Insert {options[0]} number")                        
                     # elif len(options)==2:
