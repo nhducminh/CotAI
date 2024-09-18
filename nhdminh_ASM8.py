@@ -35,15 +35,17 @@ with col1:
                     y = df.Sales
                     st.write(y)
                     model = LinearRegression()
-
-                    if len(options)==1:                        
-                        X = np.array(df.loc[:,options[0]])
-                        st.write(X)
-                        model.fit(X,y)
-                    elif len(options)==2:
-                        X = np.array(df.loc[:,[options[0],options[1]]])
-                        st.write(X)
-                        model.fit(X,y)
+                    try:
+                        if len(options)==1:                        
+                            X = np.array(df.loc[:,options[0]])
+                            st.write(X)
+                            model.fit(X,y)
+                        elif len(options)==2:
+                            X = np.array(df.loc[:,[options[0],options[1]]])
+                            st.write(X)
+                            model.fit(X,y)
+                    except Exception as e:
+                        st.write(e)
 
                     pass
                 pass
