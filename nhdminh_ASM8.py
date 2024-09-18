@@ -40,27 +40,24 @@ with col1_main:
                         X = np.array(df.loc[:,options[0]]).reshape(-1,1)
                         
                         X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
-                        model.fit(X_train,y_train)
+                        model.fit(X_train,y_train)   
                         
-                        y_predict = model.predict(X_test)
-                        model_mae = mae(y_test,y_predict)
-                        model_mse = mse(y_test,y_predict)
+                        y_predict = model.predict(X_test)      
                         st.write(f"Model trained:")
-                        st.write(f"MAE:{model_mae}")
-                        st.write(f"MSE: {model_mse}")
-                        
+                        st.write(f"MAE:{mae(y_test,y_predict)}")
+                        st.write(f"MSE: {mse(y_test,y_predict)}")
+                        with tab2:
+                            input0 = st.number_input(f"Insert {options[0]} number")                        
                     elif len(options)==2:
                         X = np.array(df.loc[:,[options[0],options[1]]])
                         
                         X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size=30)
                         model.fit(X_train,y_train)
                         
-                        y_predict = model.predict(X_test)
-                        model_mae = mae(y_test,y_predict)
-                        model_mse = mse(y_test,y_predict)
+                        y_predict = model.predict(X_test)      
                         st.write(f"Model trained:")
-                        st.write(f"MAE:{model_mae}")
-                        st.write(f"MSE: {model_mse}")
+                        st.write(f"MAE:{mae(y_test,y_predict)}")
+                        st.write(f"MSE: {mse(y_test,y_predict)}")
                         
                         with tab2:
                             col5_tab2, col6_tab2 = st.columns(2)
