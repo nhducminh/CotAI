@@ -39,11 +39,11 @@ with col1:
                     if len(options)==1:                        
                         X = np.array(df.loc[:,options[0]])
                         st.write(X)
-                        # model.fit(X,y)
+                        model.fit(X,y)
                     elif len(options)==2:
                         X = np.array(df.loc[:,[options[0],options[1]]])
                         st.write(X)
-                        # model.fit(X,y)
+                        model.fit(X,y)
 
                     pass
                 pass
