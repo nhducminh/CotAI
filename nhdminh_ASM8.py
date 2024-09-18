@@ -57,7 +57,7 @@ with col1_main:
                             XY = np.c_[XX.ravel(),YY.ravel()]
                             Z = XY@w + b                            
                             fig = go.Figure(data=[ go.Surface(x = X_space,y = Y_space, z = Z.reshape(XX.shape)),
-                                                  go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers'))
+                                                  go.Scatter3d(x = X[:,0],y = X[:,1], z = y, mode = 'markers')])
                             st.plotly_chart(fig, use_container_width=True)
 
 
