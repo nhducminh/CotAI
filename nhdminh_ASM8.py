@@ -71,7 +71,7 @@ with col1_main:
                             fig3d.update_layout(scene = dict(
                                                 xaxis_title=options[0],
                                                 yaxis_title=options[1],
-                                                zaxis_title='Sales')
+                                                zaxis_title='Sales'))
 
                             st.plotly_chart(fig3d)
                         
