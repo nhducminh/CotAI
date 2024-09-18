@@ -34,7 +34,7 @@ with col1_main:
                         options = st.multiselect(
                             "Choose feature",
                             (df.columns[0], df.columns[1], df.columns[2]),
-                            max_selections=2)
+                            max_selections=3)
                         y = df.Sales
                         model = LinearRegression()
 
@@ -48,12 +48,10 @@ with col1_main:
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         with tab2:
                             input = [st.number_input(f"Insert {x} number") for x in options ]
-                            st.write(np.array(input))
-                            st.write(np.all(np.array(input)))
                             if st.button("Predict", type="primary"):     
                                 if np.all(np.array(input)):
                                     output_predict = model.predict(np.array(input).reshape(-1,len(options)))
-                                    st.write(output_predict)
+                                    st.write(f"Prediction {output_predict}")
                                 else:
                                     st.write("Please input")
                     except:
