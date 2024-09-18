@@ -27,6 +27,12 @@ with col1:
                         (df.columns[0], df.columns[1], df.columns[2]),
                         max_selections=2)
 
+                    # YOUR CODE HERE
+                    if len(options)==1:                        
+                        y = df.Sales
+                        X = np.array(df.loc[:,[options[0]])
+                        model = LinearRegression()
+                        model.fit(X,y)
                     pass
                 pass
             with tab2:
