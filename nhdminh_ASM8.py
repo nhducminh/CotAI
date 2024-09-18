@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 
 from io import StringIO
 from sklearn.linear_model import LinearRegression
@@ -52,12 +53,8 @@ with col1_main:
                         st.write(f"MAE:{mae(y_test,y_predict)}")
                         st.write(f"MSE: {mse(y_test,y_predict)}")
                         if len(options)==1:           
-                            xx = np.linspace(0,np.max(X))
-                            fig2d = go.Figure(data=[go.Scatter(x=xx,y=y,mode='markers'),
-                                                   go.Scatter(x=xx,y=y*w +b,mode='lines')])
-
-                            st.plotly_chart(fig2d)
-    
+                            fig, ax = plt.scatter(X, y)
+                            st.pyplot(fig)
                         if len(options)==2:
                             X_space = np.linspace(np.min(X[:,0]),np.max(X[:,0]))
                             Y_space = np.linspace(np.min(X[:,1]),np.max(X[:,1]))
