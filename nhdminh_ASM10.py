@@ -94,7 +94,6 @@ with tab2:
                 image_np = image_np.convert('L')
                 image_np = np.array(image_np)/255
                 image_np = image_np.reshape(1,28,28)
-
                 model = load_model(modelname) 
                 y_test_pred = model.predict(image_np)
                 yLabel = np.argsort(y_test_pred)[0][-3:][::-1]
@@ -102,8 +101,6 @@ with tab2:
 
                 labels = ['T-shirt', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot'][::-1]
                 st.write('Predict:')
-                st.write(yLabel)
-
                 for s in yLabel:
                     st.write(f'{labels[s]}: {y_test_pred[0][s]*100:.2f},%')    
             except Exception as e:
